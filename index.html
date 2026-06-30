@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>Nonstop St. Louis</title>
+<meta name="description" content="Nonstop St. Louis is a life insurance agency helping people launch a professional career in financial services with in person training and mentorship. Apply today." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#000000;
+    --panel:#0a0a0c;
+    --card:rgba(255,255,255,.045);
+    --card-brd:rgba(255,255,255,.1);
+    --txt:#f5f5f6;
+    --muted:#9a9aa2;
+    --red:#e4222b;
+    --red-2:#ff4d54;
+    --red-deep:#b0141b;
+    --grad:linear-gradient(135deg,#ff3b42,#e4222b 60%,#b0141b);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .display{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.015em;text-transform:uppercase;line-height:1.05}
+  .grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red-2);margin-bottom:14px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:16px;padding:16px 30px;border-radius:12px;cursor:pointer;border:0;transition:transform .15s,box-shadow .15s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 24px -10px rgba(228,34,43,.7)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -10px rgba(228,34,43,.85)}
+
+  /* brand wordmark */
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .mark{width:34px;height:32px;flex:none}
+  .logo .name{font-family:'Archivo',sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em;line-height:1;text-transform:uppercase}
+  .logo .name small{display:block;font-size:8px;letter-spacing:.34em;color:var(--red-2);font-weight:700;margin-top:3px}
+  .logo-img{height:60px;width:auto;display:none}
+  .foot .logo-img{height:48px}
+  .logo-fallback{display:flex;align-items:center;gap:11px}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--card-brd)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:82px}
+  .nav .btn{padding:10px 18px;font-size:14px}
+
+  /* hero */
+  .hero{text-align:center;padding:64px 0 40px;position:relative;overflow:hidden}
+  .hero .arch-bg{position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:min(560px,116%);height:auto;opacity:.16;z-index:0;pointer-events:none}
+  .hero::before{content:"";position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:620px;height:420px;max-width:150%;background:radial-gradient(ellipse,rgba(228,34,43,.22),transparent 64%);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(30px,7vw,64px);margin-bottom:16px;text-wrap:balance}
+  .hero p.sub{max-width:600px;margin:0 auto;font-size:clamp(16px,4.4vw,19px);color:var(--muted)}
+  .player{position:relative;max-width:840px;margin:34px auto 0;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--card-brd);background:linear-gradient(135deg,#161616,#0a0a0c);box-shadow:0 24px 60px -28px rgba(0,0,0,.9)}
+  .player .thumb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+  .player .play{width:72px;height:72px;border-radius:50%;background:var(--grad);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+  .player .play:active{transform:scale(.96)}
+  .player .play svg{margin-left:5px}
+  .player .vsl-label{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .hero .cta-row{margin-top:30px}
+  .hero .micro{margin-top:13px;font-size:13px;color:var(--muted)}
+
+  /* sections */
+  .sec{padding:60px 0}
+  .sec-line{border-top:1px solid var(--card-brd)}
+  .sec-head{text-align:center;max-width:600px;margin:0 auto 38px}
+  .sec-head h2{font-size:clamp(26px,6vw,40px)}
+  .sec-head p{color:var(--muted);margin-top:12px;font-size:16px}
+
+  /* benefits */
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .benefit{padding:28px 24px;border-radius:16px;background:var(--card);border:1px solid var(--card-brd)}
+  .benefit .ico{width:46px;height:46px;border-radius:12px;background:rgba(228,34,43,.14);border:1px solid rgba(228,34,43,.32);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--red-2)}
+  .benefit h3{font-size:19px;margin-bottom:7px}
+  .benefit p{color:var(--muted);font-size:15px}
+
+  /* trust */
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:700px;margin:0 auto}
+  .trust .stat{padding:22px 18px;border-radius:14px;background:var(--card);border:1px solid var(--card-brd);text-align:center}
+  .trust .stat b{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(22px,5vw,30px);color:var(--red-2);letter-spacing:-.01em;margin-bottom:5px}
+  .trust .stat span{font-size:13.5px;color:var(--muted)}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .step{padding:24px 18px;border-radius:14px;background:var(--card);border:1px solid var(--card-brd)}
+  .step .n{font-family:'Archivo';font-weight:800;font-size:26px;color:var(--red-2);margin-bottom:8px}
+  .step h3{font-size:16px;margin-bottom:5px}
+  .step p{color:var(--muted);font-size:13.5px;line-height:1.5}
+
+  /* apply / embed */
+  .apply-card{position:relative;max-width:600px;margin:0 auto;border-radius:20px;border:1px solid rgba(228,34,43,.35);background:linear-gradient(135deg,rgba(228,34,43,.1),rgba(255,255,255,.02));padding:38px 30px;text-align:center;overflow:hidden}
+  .apply-card .arch-bg{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:300px;opacity:.1;z-index:0;pointer-events:none}
+  .apply-card>*{position:relative;z-index:1}
+  .apply-card h2{font-size:clamp(26px,6vw,36px);margin-bottom:10px}
+  .apply-card p{color:var(--muted);margin-bottom:26px}
+  .embed-slot{min-height:120px;border-radius:14px;background:rgba(255,255,255,.03);border:1px dashed var(--card-brd);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+  .embed-slot .hint{color:#7a7a82;font-size:13.5px;line-height:1.6}
+  .embed-slot iframe{width:100%;border:0}
+
+  footer{border-top:1px solid var(--card-brd);padding:30px 0 26px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .foot .muted{color:var(--muted);font-size:12.5px}
+  .foot a{color:var(--muted);font-size:13px}
+  .foot a:hover{color:var(--red-2)}
+
+  @media(max-width:860px){
+    .benefits{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:600px){
+    .steps{grid-template-columns:1fr}
+    .trust{grid-template-columns:1fr}
+    .nav .btn{padding:11px 20px;font-size:14px}
+  }
+  @media(max-width:520px){
+    .logo-img{height:50px}
+    .nav{height:70px}
+    .apply-card{padding:30px 20px}
+    .sec{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="archGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff3b42"/><stop offset="1" stop-color="#c4161d"/></linearGradient><mask id="archSlits"><rect x="0" y="0" width="400" height="380" fill="#fff"/><rect x="0.0" y="0" width="3.3" height="380" fill="#000"/><rect x="9.0" y="0" width="3.3" height="380" fill="#000"/><rect x="18.0" y="0" width="3.3" height="380" fill="#000"/><rect x="27.0" y="0" width="3.3" height="380" fill="#000"/><rect x="36.0" y="0" width="3.3" height="380" fill="#000"/><rect x="45.0" y="0" width="3.3" height="380" fill="#000"/><rect x="54.0" y="0" width="3.3" height="380" fill="#000"/><rect x="63.0" y="0" width="3.3" height="380" fill="#000"/><rect x="72.0" y="0" width="3.3" height="380" fill="#000"/><rect x="81.0" y="0" width="3.3" height="380" fill="#000"/><rect x="90.0" y="0" width="3.3" height="380" fill="#000"/><rect x="99.0" y="0" width="3.3" height="380" fill="#000"/><rect x="108.0" y="0" width="3.3" height="380" fill="#000"/><rect x="117.0" y="0" width="3.3" height="380" fill="#000"/><rect x="126.0" y="0" width="3.3" height="380" fill="#000"/><rect x="135.0" y="0" width="3.3" height="380" fill="#000"/><rect x="144.0" y="0" width="3.3" height="380" fill="#000"/><rect x="153.0" y="0" width="3.3" height="380" fill="#000"/><rect x="162.0" y="0" width="3.3" height="380" fill="#000"/><rect x="171.0" y="0" width="3.3" height="380" fill="#000"/><rect x="180.0" y="0" width="3.3" height="380" fill="#000"/><rect x="189.0" y="0" width="3.3" height="380" fill="#000"/><rect x="198.0" y="0" width="3.3" height="380" fill="#000"/><rect x="207.0" y="0" width="3.3" height="380" fill="#000"/><rect x="216.0" y="0" width="3.3" height="380" fill="#000"/><rect x="225.0" y="0" width="3.3" height="380" fill="#000"/><rect x="234.0" y="0" width="3.3" height="380" fill="#000"/><rect x="243.0" y="0" width="3.3" height="380" fill="#000"/><rect x="252.0" y="0" width="3.3" height="380" fill="#000"/><rect x="261.0" y="0" width="3.3" height="380" fill="#000"/><rect x="270.0" y="0" width="3.3" height="380" fill="#000"/><rect x="279.0" y="0" width="3.3" height="380" fill="#000"/><rect x="288.0" y="0" width="3.3" height="380" fill="#000"/><rect x="297.0" y="0" width="3.3" height="380" fill="#000"/><rect x="306.0" y="0" width="3.3" height="380" fill="#000"/><rect x="315.0" y="0" width="3.3" height="380" fill="#000"/><rect x="324.0" y="0" width="3.3" height="380" fill="#000"/><rect x="333.0" y="0" width="3.3" height="380" fill="#000"/><rect x="342.0" y="0" width="3.3" height="380" fill="#000"/><rect x="351.0" y="0" width="3.3" height="380" fill="#000"/><rect x="360.0" y="0" width="3.3" height="380" fill="#000"/><rect x="369.0" y="0" width="3.3" height="380" fill="#000"/><rect x="378.0" y="0" width="3.3" height="380" fill="#000"/><rect x="387.0" y="0" width="3.3" height="380" fill="#000"/><rect x="396.0" y="0" width="3.3" height="380" fill="#000"/></mask><symbol id="archMark" viewBox="0 0 400 380"><path d="M72 374 C72 150 150 58 200 58 C250 58 328 150 328 374" fill="none" stroke="url(#archGrad)" stroke-width="30" mask="url(#archSlits)"/></symbol></defs></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <img class="logo-img" src="logo.png" alt="Nonstop St. Louis" />
+      <span class="logo-fallback">
+        <svg class="mark" viewBox="0 0 400 380"><use href="#archMark"/></svg>
+        <span class="name">NONSTOP<small>ST. LOUIS</small></span>
+      </span>
+    </a>
+    <a href="#apply" class="btn btn-primary">Apply Now</a>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<section class="hero">
+  <svg class="arch-bg" viewBox="0 0 400 380"><use href="#archMark"/></svg>
+  <div class="wrap">
+    <span class="eyebrow">Nonstop St. Louis</span>
+    <h1 class="display">Launch Your Career In <span class="grad-txt">Financial Services</span></h1>
+    <p class="sub">A St. Louis life insurance agency helping people build a real, professional career protecting families. Watch the short video to see how it works.</p>
+
+    <div class="player" id="player">
+      <div class="thumb" id="thumb">
+        <button class="play" id="playBtn" aria-label="Play video">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg>
+        </button>
+        <span class="vsl-label">Watch the overview</span>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="#apply" class="btn btn-primary">Apply Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="micro">No experience required. In person training in St. Louis. Apply in two minutes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-line">
+  <div class="wrap">
+    <div class="trust">
+      <div class="stat"><b>In Person</b><span>Training in St. Louis</span></div>
+      <div class="stat"><b>1 on 1</b><span>Mentorship and coaching</span></div>
+      <div class="stat"><b>Licensed</b><span>Professional career path</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-line">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display">Why Agents Choose Nonstop</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+        <h3>Get Licensed</h3>
+        <p>We walk you through getting your life insurance license and starting strong, even with no background in the industry.</p>
+      </div>
+      <div class="benefit">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <h3>In Person Training</h3>
+        <p>Learn face to face at our St. Louis office alongside mentors who are genuinely invested in your growth.</p>
+      </div>
+      <div class="benefit">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Real Mentorship</h3>
+        <p>One on one coaching from people who do this every day. You are never left to figure it out alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-line">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display">How It Works</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Apply</h3><p>Fill out the short form. Two minutes, no resume.</p></div>
+      <div class="step"><div class="n">02</div><h3>Discovery Call</h3><p>A quick phone call to learn about your goals.</p></div>
+      <div class="step"><div class="n">03</div><h3>Interview</h3><p>Meet the team and see if it is a fit.</p></div>
+      <div class="step"><div class="n">04</div><h3>Licensing</h3><p>Get licensed with our guidance every step.</p></div>
+      <div class="step"><div class="n">05</div><h3>Active Agent</h3><p>Start your career with a mentor in your corner.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-line" id="apply">
+  <div class="wrap">
+    <div class="apply-card">
+      <svg class="arch-bg" viewBox="0 0 400 380"><use href="#archMark"/></svg>
+      <span class="eyebrow">Apply Today</span>
+      <h2 class="display">Ready To Start?</h2>
+      <p>Fill out the application below and our team will reach out to set up your discovery call.</p>
+
+      <!-- ===================================================================
+           PASTE YOUR FORM EMBED CODE INSIDE THIS DIV.
+           Replace the placeholder below with your embed (GoHighLevel,
+           JotForm, Typeform, etc.). It will size to the container.
+      ==================================================================== -->
+      <div class="embed-slot" id="formEmbed">
+        <span class="hint">Your application form will be embedded here.<br />Paste your form embed code inside the &lt;div id="formEmbed"&gt; in the HTML.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top">
+      <img class="logo-img" src="logo.png" alt="Nonstop St. Louis" />
+      <span class="logo-fallback">
+        <svg class="mark" viewBox="0 0 400 380"><use href="#archMark"/></svg>
+        <span class="name">NONSTOP<small>ST. LOUIS</small></span>
+      </span>
+    </a>
+    <a href="https://www.instagram.com/nonstop_stl/" target="_blank" rel="noopener">Instagram</a>
+    <span class="muted">&copy; <span id="yr">2026</span> Nonstop St. Louis</span>
+  </div>
+</footer>
+
+<script>
+  var VSL_EMBED_URL = ""; // paste your video embed url, e.g. "https://www.youtube.com/embed/XXXX?autoplay=1"
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('playBtn').addEventListener('click', function(){
+    var player = document.getElementById('player');
+    if (VSL_EMBED_URL){
+      player.innerHTML = '<iframe src="'+VSL_EMBED_URL+'" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+    } else {
+      document.getElementById('thumb').innerHTML = '<span class="vsl-label">Add your video url (VSL_EMBED_URL) to enable playback</span>';
+    }
+  });
+</script>
+<script>(function(){var t=new Image();t.onload=function(){document.querySelectorAll(".logo-img").forEach(function(i){i.style.display="block"});document.querySelectorAll(".logo-fallback").forEach(function(x){x.style.display="none"});};t.src="logo.png";})();</script>
+</body>
+</html>
